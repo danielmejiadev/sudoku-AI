@@ -1,6 +1,7 @@
 
 package Sudoku;
 
+import Vista.Vista;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -15,9 +16,11 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 
 public class CargarSudoku extends javax.swing.JDialog {
 
-    Vista parent = new Vista();
+    Vista parent;
+    int[][] matrizInicial = new int[9][9];
     
-    public CargarSudoku(Vista parent, boolean modal) {
+    public CargarSudoku(Vista parent, boolean modal) 
+    {
         super(parent, modal);
         this.parent = parent;
         initComponents();
@@ -70,32 +73,42 @@ public class CargarSudoku extends javax.swing.JDialog {
             try {
                 FileReader fr = new FileReader(archivoseleccionado);
                 BufferedReader br = new BufferedReader(fr);
-                Vista.numeros = tomarDatos(br);
+                matrizInicial = tomarDatos(br);
                 
             } catch (FileNotFoundException ex) {
                 Logger.getLogger(CargarSudoku.class.getName()).log(Level.SEVERE, null, ex);
             } catch (IOException ex) {
                 Logger.getLogger(CargarSudoku.class.getName()).log(Level.SEVERE, null, ex);
             }
-            //JOptionPane.showMessageDialog(rootPane, "Acción Realizada");
+
             
             
-        }else{
+        }else
+        {
             if(boton.equals(JFileChooser.CANCEL_SELECTION)){
                 JOptionPane.showMessageDialog(rootPane, "Acción Cancelada");
                 
             }
         }
         this.setVisible(false);
+        
+        
     }//GEN-LAST:event_jFileChooser1ActionPerformed
+    
+    public int[][] getMatrizInicial()
+    {
+        return matrizInicial;
+    }
 
-
-    public int[] tomarDatos(BufferedReader bf ) throws IOException{
-        int[] datos = new int[81];
-        for (int i = 0, k = 0; i < 9; i++) {
+    public int[][] tomarDatos(BufferedReader bf ) throws IOException
+    {
+        int[][] datos = new int[9][9];
+        for (int i = 0; i < 9; i++) 
+        {
             String s = bf.readLine();
-            for (int j = 0; j < 9; j++, k++) {
-                datos[k] = s.charAt(j)-48;
+            for (int j = 0; j < 9; j++) 
+            {
+                datos[i][j] = s.charAt(j)-48;
             }
         }
         return datos;
