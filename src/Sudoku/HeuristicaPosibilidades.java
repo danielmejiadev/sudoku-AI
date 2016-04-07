@@ -10,18 +10,18 @@ public class HeuristicaPosibilidades {
     Parametros: 
                 int numero -> numero a verificar, 
                 int fila   -> fila que se desea evaluar, 
-                int [][] matrix -> matrix de la cual se evaluara la fila
+                int [][] matriz -> matriz de la cual se evaluara la fila
     Salida:
             true-> Si el numero ya esta dentro de la fila
             false-> si el numero no esta dentro de la fila
     */
-    public boolean existeFila(int numero, int fila, int[][]matrix)
+    public boolean existeFila(int numero, int fila, int[][]matriz)
     {  
         boolean valorVerdad = false;
 
-        for ( int i = 0; i < matrix.length; i ++ )
+        for ( int i = 0; i < matriz.length; i ++ )
         {
-            if ( matrix[fila][i] == numero)
+            if ( matriz[fila][i] == numero)
             {
                  valorVerdad = true;
                  break;
@@ -149,7 +149,7 @@ public class HeuristicaPosibilidades {
     /*Metodo que evalua todas las posibilidadades de los numeros del 1 al 9 dentro de una fila
     Parametros: 
                 int fila   -> fila que se desea evaluar
-                int [][] matrix -> matrix de la cual se evaluara la fila
+                int [][] matriz -> matriz de la cual se evaluara la fila
     Salida:
             List<Posibilidad>-> una lista de todas las posibilidades, donde una posibilidad es:
                                 fila-> fila de la posibilidad
