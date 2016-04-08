@@ -7,35 +7,35 @@ import java.util.List;
 
 public class HeuristicaNumerosUnicos {
     
-    public List<Integer> numerosFila(int fila,int[][]matrix)
+    public List<Integer> numerosFila(int fila,int[][]matriz)
     {
         List<Integer> numeros = new ArrayList<>();
-        for(int i=0;i<matrix.length;i++)
+        for(int i=0;i<matriz.length;i++)
         {
-                if(matrix[fila][i]!=0)
+                if(matriz[fila][i]!=0)
                 {
-                   numeros.add(matrix[fila][i]);
+                   numeros.add(matriz[fila][i]);
                 }
         } 
         
         return numeros;
     }
     
-    public List<Integer> numerosColumna(int columna,int[][]matrix)
+    public List<Integer> numerosColumna(int columna,int[][]matriz)
     {
         List<Integer> numeros = new ArrayList<>();
-        for(int i=0;i<matrix.length;i++)
+        for(int i=0;i<matriz.length;i++)
         {
-                if(matrix[i][columna]!=0)
+                if(matriz[i][columna]!=0)
                 {
-                   numeros.add(matrix[i][columna]);
+                   numeros.add(matriz[i][columna]);
                 }
         } 
         
         return numeros;
     }
     
-    public List<Integer> numerosCaja(int fila, int columna,int[][]matrix)
+    public List<Integer> numerosCaja(int fila, int columna,int[][]matriz)
     {
         List<Integer> numeros = new ArrayList<>();
         int minimo_fila;
@@ -85,9 +85,9 @@ public class HeuristicaNumerosUnicos {
         {
              for (int c = minimo_columna; c <= maximo_columna; c++)
              {
-                 if ( matrix[f][c] != 0 )
+                 if ( matriz[f][c] != 0 )
                  {
-                     numeros.add(matrix[f][c]);
+                     numeros.add(matriz[f][c]);
                  }  
              }
         }   
@@ -95,15 +95,15 @@ public class HeuristicaNumerosUnicos {
         return numeros;
     }
      
-    public List<Integer> numerosFaltanFilaColumnaCaja(int fila, int columna, int[][]matrix)
+    public List<Integer> numerosFaltanFilaColumnaCaja(int fila, int columna, int[][]matriz)
     {
         List<Integer> numerosFaltanFilaColumnaCaja = new ArrayList<>();
-        if(matrix[fila][columna]==0)
+        if(matriz[fila][columna]==0)
         {
             List<Integer> numerosFilaColumnaCaja = new ArrayList<>();
-            List<Integer> numerosFila = numerosFila(fila, matrix);
-            List<Integer> numerosColumna = numerosColumna(columna, matrix);
-            List<Integer> numerosCaja = numerosCaja(fila,columna, matrix);
+            List<Integer> numerosFila = numerosFila(fila, matriz);
+            List<Integer> numerosColumna = numerosColumna(columna, matriz);
+            List<Integer> numerosCaja = numerosCaja(fila,columna, matriz);
             numerosFilaColumnaCaja.addAll(numerosFila);
             numerosFilaColumnaCaja.addAll(numerosColumna);
             numerosFilaColumnaCaja.addAll(numerosCaja);
@@ -131,18 +131,18 @@ public class HeuristicaNumerosUnicos {
     }
        
     
-    public Posibilidad posicionUnicas(int[][]matrix)
+    public Posibilidad posicionUnicas(int[][]matriz)
     {
         Posibilidad posible = null;
-        for(int i=0;i<matrix.length;i++)
+        for(int i=0;i<matriz.length;i++)
         {
-            for(int j=0;j<matrix.length;j++)
+            for(int j=0;j<matriz.length;j++)
             {
-                if(numerosFaltanFilaColumnaCaja(i, j, matrix).size()==1)
+                if(numerosFaltanFilaColumnaCaja(i, j, matriz).size()==1)
                 {
-                     posible = new Posibilidad(numerosFaltanFilaColumnaCaja(i, j, matrix).get(0), i, j);
-                     i=matrix.length;
-                     j=matrix.length;
+                     posible = new Posibilidad(numerosFaltanFilaColumnaCaja(i, j, matriz).get(0), i, j);
+                     i=matriz.length;
+                     j=matriz.length;
                 }
             }
         }
@@ -152,18 +152,18 @@ public class HeuristicaNumerosUnicos {
         
      
      
-    public int[][] heuristicaNumerosUnicos(int[][]matrixExpandir)
+    public int[][] heuristicaNumerosUnicos(int[][]matrizExpandir)
     {
-        Posibilidad unico = posicionUnicas(matrixExpandir);
+        Posibilidad unico = posicionUnicas(matrizExpandir);
         while(unico != null)
         { 
             int fila=unico.getFila();
             int columna=unico.getColumna();
             int numero=unico.getNumero();
-            matrixExpandir[fila][columna]=numero;
-            unico = posicionUnicas(matrixExpandir);
+            matrizExpandir[fila][columna]=numero;
+            unico = posicionUnicas(matrizExpandir);
         }
-        return matrixExpandir;
+        return matrizExpandir;
     }
     
 }
