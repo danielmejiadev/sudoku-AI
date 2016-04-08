@@ -59,7 +59,7 @@ public class HeuristicaPosibilidades {
                 int numero -> numero a verificar, 
                 int fila   -> fila perteneciente a la caja que se desea evaluar
                 int columa -> columna perteneciente a la caja que se desea evaluar
-                int [][] matrix -> matrix de la cual se evaluara la fila
+                int [][] matriz -> matriz de la cual se evaluara la caja
     Salida:
             true-> Si el numero ya esta dentro de la caja
             false-> si el numero no esta dentro de la caja
@@ -129,7 +129,7 @@ public class HeuristicaPosibilidades {
                 int numero -> numero a verificar, 
                 int fila   -> fila 
                 int columa -> columna 
-                int [][] matrix -> matrix de la cual se evaluara la fila
+                int [][] matriz -> matriz que se evaluara
     Salida:
             true-> Si el numero ya esta dentro de la fila y la columna y la caja
             false-> si el numero no esta dentro de la fila y la columna y la caja
@@ -180,7 +180,7 @@ public class HeuristicaPosibilidades {
     /*Metodo que evalua todas las posibilidadades de los numeros del 1 al 9 dentro de una columna
     Parametros: 
                 int columna   -> columna que se desea evaluar
-                int [][] matrix -> matrix de la cual se evaluara la columna
+                int [][] matriz -> matriz de la cual se evaluara la columna
     Salida:
             List<Posibilidad>-> una lista de todas las posibilidades, donde una posibilidad es:
                                 fila-> fila de la posibilidad
@@ -207,10 +207,10 @@ public class HeuristicaPosibilidades {
         return posibles;
     }
         
-    /*Metodo que evalua todas las posibilidadades de los numeros del 1 al 9 dentro de una fila
+    /*Metodo que evalua todas las posibilidadades de los numeros del 1 al 9 dentro de una caja
     Parametros: 
                 int caja   -> caja que se desea evaluar, donde la cajas se enumeeran de 0 a 8 de derecha a izquierda 
-                int [][] matrix -> matrix de la cual se evaluara la 
+                int [][] matriz -> matriz de la cual se evaluara la 
     Salida:
             List<Posibilidad>-> una lista de todas las posibilidades, donde una posibilidad es:
                                 fila-> fila de la posibilidad

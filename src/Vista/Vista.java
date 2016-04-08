@@ -45,12 +45,12 @@ public class Vista extends javax.swing.JFrame {
         setTitle("Sudoku - IA");
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Jenna Sue", 1, 48)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("SUDOKU ");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 30, 180, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 20, 160, -1));
 
-        jPanelContenedor.setBackground(new java.awt.Color(153, 153, 153));
+        jPanelContenedor.setBackground(new java.awt.Color(254, 254, 254));
         jPanelContenedor.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanelContenedor.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
@@ -65,30 +65,36 @@ public class Vista extends javax.swing.JFrame {
             .addGap(0, 356, Short.MAX_VALUE)
         );
 
-        getContentPane().add(jPanelContenedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 360, 360));
+        getContentPane().add(jPanelContenedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 80, 360, 360));
 
-        cargar.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        cargar.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        cargar.setForeground(new java.awt.Color(255, 255, 255));
         cargar.setText("Cargar ");
+        cargar.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
+        cargar.setContentAreaFilled(false);
         cargar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cargarActionPerformed(evt);
             }
         });
-        getContentPane().add(cargar, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 130, 120, 40));
+        getContentPane().add(cargar, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 450, 120, 40));
 
-        resolver.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        resolver.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        resolver.setForeground(new java.awt.Color(255, 255, 255));
         resolver.setText("Resolver ");
+        resolver.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
+        resolver.setContentAreaFilled(false);
         resolver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 resolverActionPerformed(evt);
             }
         });
-        getContentPane().add(resolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 180, 120, 40));
+        getContentPane().add(resolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 450, 120, 40));
         getContentPane().add(relojLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(441, 50, 50, 20));
 
         fondo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        fondo.setIcon(new javax.swing.ImageIcon("C:\\Users\\Daniel\\OneDrive\\Univalle\\NetBeansProjects\\SudokuIA\\src\\fondo.jpg")); // NOI18N
-        getContentPane().add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 540, 510));
+        fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondo3.jpg"))); // NOI18N
+        getContentPane().add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 520, 510));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
